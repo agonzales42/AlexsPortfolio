@@ -1,0 +1,19 @@
+all: lab11
+
+Bicycle.o: Bicycle.cpp Bicycle.h CarbonFootprint.h
+	g++ -c Bicycle.cpp
+
+Car.o: Car.cpp Car.h
+	g++ -c Car.cpp
+
+Building.o: Building.cpp Building.h CarbonFootprint.h
+	g++ -c Building.cpp
+
+Lab11.o: Lab11.cpp CarbonFootprint.h
+	g++ -c Lab11.cpp
+
+lab11: Bicycle.o Car.o Building.o Lab11.o
+	g++ Bicycle.o Car.o Building.o Lab11.o -o lab11
+
+clean:
+	rm *.o
